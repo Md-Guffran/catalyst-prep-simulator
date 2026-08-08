@@ -10,33 +10,272 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as BookmarksRouteImport } from './routes/bookmarks'
+import { Route as DashboardRouteImport } from './routes/dashboard'
+import { Route as LeaderboardRouteImport } from './routes/leaderboard'
+import { Route as LiveClassesRouteImport } from './routes/live-classes'
+import { Route as MockTestsRouteImport } from './routes/mock-tests'
+import { Route as NotificationsRouteImport } from './routes/notifications'
+import { Route as OnboardingRouteImport } from './routes/onboarding'
+import { Route as ProfileRouteImport } from './routes/profile'
+import { Route as ProgressRouteImport } from './routes/progress'
+import { Route as PyqsRouteImport } from './routes/pyqs'
+import { Route as QuestionBankRouteImport } from './routes/question-bank'
+import { Route as ClassroomClassIdRouteImport } from './routes/classroom.$classId'
+import { Route as CoursesIndexRouteImport } from './routes/courses.index'
+import { Route as CoursesCourseIdRouteImport } from './routes/courses.$courseId'
+import { Route as RecordedClassesIndexRouteImport } from './routes/recorded-classes.index'
+import { Route as RecordedClassesLectureIdRouteImport } from './routes/recorded-classes.$lectureId'
+import { Route as TestTestIdIndexRouteImport } from './routes/test.$testId.index'
+import { Route as TestTestIdResultRouteImport } from './routes/test.$testId.result'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const BookmarksRoute = BookmarksRouteImport.update({
+  id: '/bookmarks',
+  path: '/bookmarks',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const DashboardRoute = DashboardRouteImport.update({
+  id: '/dashboard',
+  path: '/dashboard',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const LeaderboardRoute = LeaderboardRouteImport.update({
+  id: '/leaderboard',
+  path: '/leaderboard',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const LiveClassesRoute = LiveClassesRouteImport.update({
+  id: '/live-classes',
+  path: '/live-classes',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const MockTestsRoute = MockTestsRouteImport.update({
+  id: '/mock-tests',
+  path: '/mock-tests',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const NotificationsRoute = NotificationsRouteImport.update({
+  id: '/notifications',
+  path: '/notifications',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const OnboardingRoute = OnboardingRouteImport.update({
+  id: '/onboarding',
+  path: '/onboarding',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ProfileRoute = ProfileRouteImport.update({
+  id: '/profile',
+  path: '/profile',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ProgressRoute = ProgressRouteImport.update({
+  id: '/progress',
+  path: '/progress',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const PyqsRoute = PyqsRouteImport.update({
+  id: '/pyqs',
+  path: '/pyqs',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const QuestionBankRoute = QuestionBankRouteImport.update({
+  id: '/question-bank',
+  path: '/question-bank',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ClassroomClassIdRoute = ClassroomClassIdRouteImport.update({
+  id: '/classroom/$classId',
+  path: '/classroom/$classId',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const CoursesIndexRoute = CoursesIndexRouteImport.update({
+  id: '/courses/',
+  path: '/courses/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const CoursesCourseIdRoute = CoursesCourseIdRouteImport.update({
+  id: '/courses/$courseId',
+  path: '/courses/$courseId',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const RecordedClassesIndexRoute = RecordedClassesIndexRouteImport.update({
+  id: '/recorded-classes/',
+  path: '/recorded-classes/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const RecordedClassesLectureIdRoute =
+  RecordedClassesLectureIdRouteImport.update({
+    id: '/recorded-classes/$lectureId',
+    path: '/recorded-classes/$lectureId',
+    getParentRoute: () => rootRouteImport,
+  } as any)
+const TestTestIdIndexRoute = TestTestIdIndexRouteImport.update({
+  id: '/test/$testId/',
+  path: '/test/$testId/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const TestTestIdResultRoute = TestTestIdResultRouteImport.update({
+  id: '/test/$testId/result',
+  path: '/test/$testId/result',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/bookmarks': typeof BookmarksRoute
+  '/dashboard': typeof DashboardRoute
+  '/leaderboard': typeof LeaderboardRoute
+  '/live-classes': typeof LiveClassesRoute
+  '/mock-tests': typeof MockTestsRoute
+  '/notifications': typeof NotificationsRoute
+  '/onboarding': typeof OnboardingRoute
+  '/profile': typeof ProfileRoute
+  '/progress': typeof ProgressRoute
+  '/pyqs': typeof PyqsRoute
+  '/question-bank': typeof QuestionBankRoute
+  '/classroom/$classId': typeof ClassroomClassIdRoute
+  '/courses/$courseId': typeof CoursesCourseIdRoute
+  '/recorded-classes/$lectureId': typeof RecordedClassesLectureIdRoute
+  '/courses/': typeof CoursesIndexRoute
+  '/recorded-classes/': typeof RecordedClassesIndexRoute
+  '/test/$testId/result': typeof TestTestIdResultRoute
+  '/test/$testId/': typeof TestTestIdIndexRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/bookmarks': typeof BookmarksRoute
+  '/dashboard': typeof DashboardRoute
+  '/leaderboard': typeof LeaderboardRoute
+  '/live-classes': typeof LiveClassesRoute
+  '/mock-tests': typeof MockTestsRoute
+  '/notifications': typeof NotificationsRoute
+  '/onboarding': typeof OnboardingRoute
+  '/profile': typeof ProfileRoute
+  '/progress': typeof ProgressRoute
+  '/pyqs': typeof PyqsRoute
+  '/question-bank': typeof QuestionBankRoute
+  '/classroom/$classId': typeof ClassroomClassIdRoute
+  '/courses/$courseId': typeof CoursesCourseIdRoute
+  '/recorded-classes/$lectureId': typeof RecordedClassesLectureIdRoute
+  '/courses': typeof CoursesIndexRoute
+  '/recorded-classes': typeof RecordedClassesIndexRoute
+  '/test/$testId/result': typeof TestTestIdResultRoute
+  '/test/$testId': typeof TestTestIdIndexRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/bookmarks': typeof BookmarksRoute
+  '/dashboard': typeof DashboardRoute
+  '/leaderboard': typeof LeaderboardRoute
+  '/live-classes': typeof LiveClassesRoute
+  '/mock-tests': typeof MockTestsRoute
+  '/notifications': typeof NotificationsRoute
+  '/onboarding': typeof OnboardingRoute
+  '/profile': typeof ProfileRoute
+  '/progress': typeof ProgressRoute
+  '/pyqs': typeof PyqsRoute
+  '/question-bank': typeof QuestionBankRoute
+  '/classroom/$classId': typeof ClassroomClassIdRoute
+  '/courses/$courseId': typeof CoursesCourseIdRoute
+  '/recorded-classes/$lectureId': typeof RecordedClassesLectureIdRoute
+  '/courses/': typeof CoursesIndexRoute
+  '/recorded-classes/': typeof RecordedClassesIndexRoute
+  '/test/$testId/result': typeof TestTestIdResultRoute
+  '/test/$testId/': typeof TestTestIdIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/'
+  fullPaths:
+    | '/'
+    | '/bookmarks'
+    | '/dashboard'
+    | '/leaderboard'
+    | '/live-classes'
+    | '/mock-tests'
+    | '/notifications'
+    | '/onboarding'
+    | '/profile'
+    | '/progress'
+    | '/pyqs'
+    | '/question-bank'
+    | '/classroom/$classId'
+    | '/courses/$courseId'
+    | '/recorded-classes/$lectureId'
+    | '/courses/'
+    | '/recorded-classes/'
+    | '/test/$testId/result'
+    | '/test/$testId/'
   fileRoutesByTo: FileRoutesByTo
-  to: '/'
-  id: '__root__' | '/'
+  to:
+    | '/'
+    | '/bookmarks'
+    | '/dashboard'
+    | '/leaderboard'
+    | '/live-classes'
+    | '/mock-tests'
+    | '/notifications'
+    | '/onboarding'
+    | '/profile'
+    | '/progress'
+    | '/pyqs'
+    | '/question-bank'
+    | '/classroom/$classId'
+    | '/courses/$courseId'
+    | '/recorded-classes/$lectureId'
+    | '/courses'
+    | '/recorded-classes'
+    | '/test/$testId/result'
+    | '/test/$testId'
+  id:
+    | '__root__'
+    | '/'
+    | '/bookmarks'
+    | '/dashboard'
+    | '/leaderboard'
+    | '/live-classes'
+    | '/mock-tests'
+    | '/notifications'
+    | '/onboarding'
+    | '/profile'
+    | '/progress'
+    | '/pyqs'
+    | '/question-bank'
+    | '/classroom/$classId'
+    | '/courses/$courseId'
+    | '/recorded-classes/$lectureId'
+    | '/courses/'
+    | '/recorded-classes/'
+    | '/test/$testId/result'
+    | '/test/$testId/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  BookmarksRoute: typeof BookmarksRoute
+  DashboardRoute: typeof DashboardRoute
+  LeaderboardRoute: typeof LeaderboardRoute
+  LiveClassesRoute: typeof LiveClassesRoute
+  MockTestsRoute: typeof MockTestsRoute
+  NotificationsRoute: typeof NotificationsRoute
+  OnboardingRoute: typeof OnboardingRoute
+  ProfileRoute: typeof ProfileRoute
+  ProgressRoute: typeof ProgressRoute
+  PyqsRoute: typeof PyqsRoute
+  QuestionBankRoute: typeof QuestionBankRoute
+  ClassroomClassIdRoute: typeof ClassroomClassIdRoute
+  CoursesCourseIdRoute: typeof CoursesCourseIdRoute
+  RecordedClassesLectureIdRoute: typeof RecordedClassesLectureIdRoute
+  CoursesIndexRoute: typeof CoursesIndexRoute
+  RecordedClassesIndexRoute: typeof RecordedClassesIndexRoute
+  TestTestIdResultRoute: typeof TestTestIdResultRoute
+  TestTestIdIndexRoute: typeof TestTestIdIndexRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -48,22 +287,156 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/bookmarks': {
+      id: '/bookmarks'
+      path: '/bookmarks'
+      fullPath: '/bookmarks'
+      preLoaderRoute: typeof BookmarksRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/dashboard': {
+      id: '/dashboard'
+      path: '/dashboard'
+      fullPath: '/dashboard'
+      preLoaderRoute: typeof DashboardRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/leaderboard': {
+      id: '/leaderboard'
+      path: '/leaderboard'
+      fullPath: '/leaderboard'
+      preLoaderRoute: typeof LeaderboardRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/live-classes': {
+      id: '/live-classes'
+      path: '/live-classes'
+      fullPath: '/live-classes'
+      preLoaderRoute: typeof LiveClassesRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/mock-tests': {
+      id: '/mock-tests'
+      path: '/mock-tests'
+      fullPath: '/mock-tests'
+      preLoaderRoute: typeof MockTestsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/notifications': {
+      id: '/notifications'
+      path: '/notifications'
+      fullPath: '/notifications'
+      preLoaderRoute: typeof NotificationsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/onboarding': {
+      id: '/onboarding'
+      path: '/onboarding'
+      fullPath: '/onboarding'
+      preLoaderRoute: typeof OnboardingRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/profile': {
+      id: '/profile'
+      path: '/profile'
+      fullPath: '/profile'
+      preLoaderRoute: typeof ProfileRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/progress': {
+      id: '/progress'
+      path: '/progress'
+      fullPath: '/progress'
+      preLoaderRoute: typeof ProgressRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/pyqs': {
+      id: '/pyqs'
+      path: '/pyqs'
+      fullPath: '/pyqs'
+      preLoaderRoute: typeof PyqsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/question-bank': {
+      id: '/question-bank'
+      path: '/question-bank'
+      fullPath: '/question-bank'
+      preLoaderRoute: typeof QuestionBankRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/classroom/$classId': {
+      id: '/classroom/$classId'
+      path: '/classroom/$classId'
+      fullPath: '/classroom/$classId'
+      preLoaderRoute: typeof ClassroomClassIdRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/courses/': {
+      id: '/courses/'
+      path: '/courses'
+      fullPath: '/courses/'
+      preLoaderRoute: typeof CoursesIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/courses/$courseId': {
+      id: '/courses/$courseId'
+      path: '/courses/$courseId'
+      fullPath: '/courses/$courseId'
+      preLoaderRoute: typeof CoursesCourseIdRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/recorded-classes/': {
+      id: '/recorded-classes/'
+      path: '/recorded-classes'
+      fullPath: '/recorded-classes/'
+      preLoaderRoute: typeof RecordedClassesIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/recorded-classes/$lectureId': {
+      id: '/recorded-classes/$lectureId'
+      path: '/recorded-classes/$lectureId'
+      fullPath: '/recorded-classes/$lectureId'
+      preLoaderRoute: typeof RecordedClassesLectureIdRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/test/$testId/': {
+      id: '/test/$testId/'
+      path: '/test/$testId'
+      fullPath: '/test/$testId/'
+      preLoaderRoute: typeof TestTestIdIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/test/$testId/result': {
+      id: '/test/$testId/result'
+      path: '/test/$testId/result'
+      fullPath: '/test/$testId/result'
+      preLoaderRoute: typeof TestTestIdResultRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  BookmarksRoute: BookmarksRoute,
+  DashboardRoute: DashboardRoute,
+  LeaderboardRoute: LeaderboardRoute,
+  LiveClassesRoute: LiveClassesRoute,
+  MockTestsRoute: MockTestsRoute,
+  NotificationsRoute: NotificationsRoute,
+  OnboardingRoute: OnboardingRoute,
+  ProfileRoute: ProfileRoute,
+  ProgressRoute: ProgressRoute,
+  PyqsRoute: PyqsRoute,
+  QuestionBankRoute: QuestionBankRoute,
+  ClassroomClassIdRoute: ClassroomClassIdRoute,
+  CoursesCourseIdRoute: CoursesCourseIdRoute,
+  RecordedClassesLectureIdRoute: RecordedClassesLectureIdRoute,
+  CoursesIndexRoute: CoursesIndexRoute,
+  RecordedClassesIndexRoute: RecordedClassesIndexRoute,
+  TestTestIdResultRoute: TestTestIdResultRoute,
+  TestTestIdIndexRoute: TestTestIdIndexRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
   ._addFileTypes<FileRouteTypes>()
-
-import type { getRouter } from './router.tsx'
-import type { startInstance } from './start.ts'
-declare module '@tanstack/react-start' {
-  interface Register {
-    ssr: true
-    router: Awaited<ReturnType<typeof getRouter>>
-    config: Awaited<ReturnType<typeof startInstance.getOptions>>
-  }
-}
