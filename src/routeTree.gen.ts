@@ -10,6 +10,7 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as DashboardRouteImport } from './routes/dashboard'
 import { Route as PyqsRouteImport } from './routes/pyqs'
 import { Route as QuestionBankRouteImport } from './routes/question-bank'
 import { Route as CoursesIndexRouteImport } from './routes/courses.index'
@@ -18,6 +19,11 @@ import { Route as CoursesCourseIdRouteImport } from './routes/courses.$courseId'
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const DashboardRoute = DashboardRouteImport.update({
+  id: '/dashboard',
+  path: '/dashboard',
   getParentRoute: () => rootRouteImport,
 } as any)
 const PyqsRoute = PyqsRouteImport.update({
@@ -43,6 +49,7 @@ const CoursesCourseIdRoute = CoursesCourseIdRouteImport.update({
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/dashboard': typeof DashboardRoute
   '/pyqs': typeof PyqsRoute
   '/question-bank': typeof QuestionBankRoute
   '/courses/$courseId': typeof CoursesCourseIdRoute
@@ -50,6 +57,7 @@ export interface FileRoutesByFullPath {
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/dashboard': typeof DashboardRoute
   '/pyqs': typeof PyqsRoute
   '/question-bank': typeof QuestionBankRoute
   '/courses/$courseId': typeof CoursesCourseIdRoute
@@ -58,6 +66,7 @@ export interface FileRoutesByTo {
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/dashboard': typeof DashboardRoute
   '/pyqs': typeof PyqsRoute
   '/question-bank': typeof QuestionBankRoute
   '/courses/$courseId': typeof CoursesCourseIdRoute
@@ -66,12 +75,24 @@ export interface FileRoutesById {
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
   fullPaths:
-    '/' | '/pyqs' | '/question-bank' | '/courses/$courseId' | '/courses/'
+    | '/'
+    | '/dashboard'
+    | '/pyqs'
+    | '/question-bank'
+    | '/courses/$courseId'
+    | '/courses/'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/pyqs' | '/question-bank' | '/courses/$courseId' | '/courses'
+  to:
+    | '/'
+    | '/dashboard'
+    | '/pyqs'
+    | '/question-bank'
+    | '/courses/$courseId'
+    | '/courses'
   id:
     | '__root__'
     | '/'
+    | '/dashboard'
     | '/pyqs'
     | '/question-bank'
     | '/courses/$courseId'
@@ -80,6 +101,7 @@ export interface FileRouteTypes {
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  DashboardRoute: typeof DashboardRoute
   PyqsRoute: typeof PyqsRoute
   QuestionBankRoute: typeof QuestionBankRoute
   CoursesCourseIdRoute: typeof CoursesCourseIdRoute
@@ -93,6 +115,13 @@ declare module '@tanstack/react-router' {
       path: '/'
       fullPath: '/'
       preLoaderRoute: typeof IndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/dashboard': {
+      id: '/dashboard'
+      path: '/dashboard'
+      fullPath: '/dashboard'
+      preLoaderRoute: typeof DashboardRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/pyqs': {
@@ -128,6 +157,7 @@ declare module '@tanstack/react-router' {
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  DashboardRoute: DashboardRoute,
   PyqsRoute: PyqsRoute,
   QuestionBankRoute: QuestionBankRoute,
   CoursesCourseIdRoute: CoursesCourseIdRoute,
