@@ -10,11 +10,14 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as BookmarksRouteImport } from './routes/bookmarks'
 import { Route as DashboardRouteImport } from './routes/dashboard'
 import { Route as LeaderboardRouteImport } from './routes/leaderboard'
 import { Route as LiveClassesRouteImport } from './routes/live-classes'
 import { Route as MockTestsRouteImport } from './routes/mock-tests'
+import { Route as NotificationsRouteImport } from './routes/notifications'
 import { Route as OnboardingRouteImport } from './routes/onboarding'
+import { Route as ProfileRouteImport } from './routes/profile'
 import { Route as ProgressRouteImport } from './routes/progress'
 import { Route as PyqsRouteImport } from './routes/pyqs'
 import { Route as QuestionBankRouteImport } from './routes/question-bank'
@@ -26,6 +29,11 @@ import { Route as RecordedClassesLectureIdRouteImport } from './routes/recorded-
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const BookmarksRoute = BookmarksRouteImport.update({
+  id: '/bookmarks',
+  path: '/bookmarks',
   getParentRoute: () => rootRouteImport,
 } as any)
 const DashboardRoute = DashboardRouteImport.update({
@@ -48,9 +56,19 @@ const MockTestsRoute = MockTestsRouteImport.update({
   path: '/mock-tests',
   getParentRoute: () => rootRouteImport,
 } as any)
+const NotificationsRoute = NotificationsRouteImport.update({
+  id: '/notifications',
+  path: '/notifications',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const OnboardingRoute = OnboardingRouteImport.update({
   id: '/onboarding',
   path: '/onboarding',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ProfileRoute = ProfileRouteImport.update({
+  id: '/profile',
+  path: '/profile',
   getParentRoute: () => rootRouteImport,
 } as any)
 const ProgressRoute = ProgressRouteImport.update({
@@ -92,11 +110,14 @@ const RecordedClassesLectureIdRoute =
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/bookmarks': typeof BookmarksRoute
   '/dashboard': typeof DashboardRoute
   '/leaderboard': typeof LeaderboardRoute
   '/live-classes': typeof LiveClassesRoute
   '/mock-tests': typeof MockTestsRoute
+  '/notifications': typeof NotificationsRoute
   '/onboarding': typeof OnboardingRoute
+  '/profile': typeof ProfileRoute
   '/progress': typeof ProgressRoute
   '/pyqs': typeof PyqsRoute
   '/question-bank': typeof QuestionBankRoute
@@ -107,11 +128,14 @@ export interface FileRoutesByFullPath {
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/bookmarks': typeof BookmarksRoute
   '/dashboard': typeof DashboardRoute
   '/leaderboard': typeof LeaderboardRoute
   '/live-classes': typeof LiveClassesRoute
   '/mock-tests': typeof MockTestsRoute
+  '/notifications': typeof NotificationsRoute
   '/onboarding': typeof OnboardingRoute
+  '/profile': typeof ProfileRoute
   '/progress': typeof ProgressRoute
   '/pyqs': typeof PyqsRoute
   '/question-bank': typeof QuestionBankRoute
@@ -123,11 +147,14 @@ export interface FileRoutesByTo {
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/bookmarks': typeof BookmarksRoute
   '/dashboard': typeof DashboardRoute
   '/leaderboard': typeof LeaderboardRoute
   '/live-classes': typeof LiveClassesRoute
   '/mock-tests': typeof MockTestsRoute
+  '/notifications': typeof NotificationsRoute
   '/onboarding': typeof OnboardingRoute
+  '/profile': typeof ProfileRoute
   '/progress': typeof ProgressRoute
   '/pyqs': typeof PyqsRoute
   '/question-bank': typeof QuestionBankRoute
@@ -140,11 +167,14 @@ export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
   fullPaths:
     | '/'
+    | '/bookmarks'
     | '/dashboard'
     | '/leaderboard'
     | '/live-classes'
     | '/mock-tests'
+    | '/notifications'
     | '/onboarding'
+    | '/profile'
     | '/progress'
     | '/pyqs'
     | '/question-bank'
@@ -155,11 +185,14 @@ export interface FileRouteTypes {
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
+    | '/bookmarks'
     | '/dashboard'
     | '/leaderboard'
     | '/live-classes'
     | '/mock-tests'
+    | '/notifications'
     | '/onboarding'
+    | '/profile'
     | '/progress'
     | '/pyqs'
     | '/question-bank'
@@ -170,11 +203,14 @@ export interface FileRouteTypes {
   id:
     | '__root__'
     | '/'
+    | '/bookmarks'
     | '/dashboard'
     | '/leaderboard'
     | '/live-classes'
     | '/mock-tests'
+    | '/notifications'
     | '/onboarding'
+    | '/profile'
     | '/progress'
     | '/pyqs'
     | '/question-bank'
@@ -186,11 +222,14 @@ export interface FileRouteTypes {
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  BookmarksRoute: typeof BookmarksRoute
   DashboardRoute: typeof DashboardRoute
   LeaderboardRoute: typeof LeaderboardRoute
   LiveClassesRoute: typeof LiveClassesRoute
   MockTestsRoute: typeof MockTestsRoute
+  NotificationsRoute: typeof NotificationsRoute
   OnboardingRoute: typeof OnboardingRoute
+  ProfileRoute: typeof ProfileRoute
   ProgressRoute: typeof ProgressRoute
   PyqsRoute: typeof PyqsRoute
   QuestionBankRoute: typeof QuestionBankRoute
@@ -207,6 +246,13 @@ declare module '@tanstack/react-router' {
       path: '/'
       fullPath: '/'
       preLoaderRoute: typeof IndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/bookmarks': {
+      id: '/bookmarks'
+      path: '/bookmarks'
+      fullPath: '/bookmarks'
+      preLoaderRoute: typeof BookmarksRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/dashboard': {
@@ -237,11 +283,25 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof MockTestsRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/notifications': {
+      id: '/notifications'
+      path: '/notifications'
+      fullPath: '/notifications'
+      preLoaderRoute: typeof NotificationsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/onboarding': {
       id: '/onboarding'
       path: '/onboarding'
       fullPath: '/onboarding'
       preLoaderRoute: typeof OnboardingRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/profile': {
+      id: '/profile'
+      path: '/profile'
+      fullPath: '/profile'
+      preLoaderRoute: typeof ProfileRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/progress': {
@@ -298,11 +358,14 @@ declare module '@tanstack/react-router' {
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  BookmarksRoute: BookmarksRoute,
   DashboardRoute: DashboardRoute,
   LeaderboardRoute: LeaderboardRoute,
   LiveClassesRoute: LiveClassesRoute,
   MockTestsRoute: MockTestsRoute,
+  NotificationsRoute: NotificationsRoute,
   OnboardingRoute: OnboardingRoute,
+  ProfileRoute: ProfileRoute,
   ProgressRoute: ProgressRoute,
   PyqsRoute: PyqsRoute,
   QuestionBankRoute: QuestionBankRoute,
