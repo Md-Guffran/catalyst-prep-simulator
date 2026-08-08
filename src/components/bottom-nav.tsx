@@ -2,7 +2,7 @@ import { Link } from "@tanstack/react-router";
 import { BookOpen, Home, LineChart, PencilRuler, User } from "lucide-react";
 
 const items = [
-  { label: "Home", to: "/dashboard", icon: Home },
+  { label: "Home", to: "/", icon: Home },
   { label: "Learn", to: "/recorded-classes", icon: BookOpen },
   { label: "Practice", to: "/question-bank", icon: PencilRuler },
   { label: "Progress", to: "/progress", icon: LineChart },

@@ -21,9 +21,13 @@ import { Route as ProfileRouteImport } from './routes/profile'
 import { Route as ProgressRouteImport } from './routes/progress'
 import { Route as PyqsRouteImport } from './routes/pyqs'
 import { Route as QuestionBankRouteImport } from './routes/question-bank'
+import { Route as AboutIndexRouteImport } from './routes/about.index'
 import { Route as ClassroomClassIdRouteImport } from './routes/classroom.$classId'
 import { Route as CoursesIndexRouteImport } from './routes/courses.index'
 import { Route as CoursesCourseIdRouteImport } from './routes/courses.$courseId'
+import { Route as FacultyIndexRouteImport } from './routes/faculty.index'
+import { Route as FacultyFacultyIdRouteImport } from './routes/faculty.$facultyId'
+import { Route as PricingIndexRouteImport } from './routes/pricing.index'
 import { Route as RecordedClassesIndexRouteImport } from './routes/recorded-classes.index'
 import { Route as RecordedClassesLectureIdRouteImport } from './routes/recorded-classes.$lectureId'
 import { Route as TestTestIdIndexRouteImport } from './routes/test.$testId.index'
@@ -89,6 +93,11 @@ const QuestionBankRoute = QuestionBankRouteImport.update({
   path: '/question-bank',
   getParentRoute: () => rootRouteImport,
 } as any)
+const AboutIndexRoute = AboutIndexRouteImport.update({
+  id: '/about/',
+  path: '/about/',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const ClassroomClassIdRoute = ClassroomClassIdRouteImport.update({
   id: '/classroom/$classId',
   path: '/classroom/$classId',
@@ -102,6 +111,21 @@ const CoursesIndexRoute = CoursesIndexRouteImport.update({
 const CoursesCourseIdRoute = CoursesCourseIdRouteImport.update({
   id: '/courses/$courseId',
   path: '/courses/$courseId',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const FacultyIndexRoute = FacultyIndexRouteImport.update({
+  id: '/faculty/',
+  path: '/faculty/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const FacultyFacultyIdRoute = FacultyFacultyIdRouteImport.update({
+  id: '/faculty/$facultyId',
+  path: '/faculty/$facultyId',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const PricingIndexRoute = PricingIndexRouteImport.update({
+  id: '/pricing/',
+  path: '/pricing/',
   getParentRoute: () => rootRouteImport,
 } as any)
 const RecordedClassesIndexRoute = RecordedClassesIndexRouteImport.update({
@@ -141,8 +165,12 @@ export interface FileRoutesByFullPath {
   '/question-bank': typeof QuestionBankRoute
   '/classroom/$classId': typeof ClassroomClassIdRoute
   '/courses/$courseId': typeof CoursesCourseIdRoute
+  '/faculty/$facultyId': typeof FacultyFacultyIdRoute
   '/recorded-classes/$lectureId': typeof RecordedClassesLectureIdRoute
+  '/about/': typeof AboutIndexRoute
   '/courses/': typeof CoursesIndexRoute
+  '/faculty/': typeof FacultyIndexRoute
+  '/pricing/': typeof PricingIndexRoute
   '/recorded-classes/': typeof RecordedClassesIndexRoute
   '/test/$testId/result': typeof TestTestIdResultRoute
   '/test/$testId/': typeof TestTestIdIndexRoute
@@ -162,8 +190,12 @@ export interface FileRoutesByTo {
   '/question-bank': typeof QuestionBankRoute
   '/classroom/$classId': typeof ClassroomClassIdRoute
   '/courses/$courseId': typeof CoursesCourseIdRoute
+  '/faculty/$facultyId': typeof FacultyFacultyIdRoute
   '/recorded-classes/$lectureId': typeof RecordedClassesLectureIdRoute
+  '/about': typeof AboutIndexRoute
   '/courses': typeof CoursesIndexRoute
+  '/faculty': typeof FacultyIndexRoute
+  '/pricing': typeof PricingIndexRoute
   '/recorded-classes': typeof RecordedClassesIndexRoute
   '/test/$testId/result': typeof TestTestIdResultRoute
   '/test/$testId': typeof TestTestIdIndexRoute
@@ -184,8 +216,12 @@ export interface FileRoutesById {
   '/question-bank': typeof QuestionBankRoute
   '/classroom/$classId': typeof ClassroomClassIdRoute
   '/courses/$courseId': typeof CoursesCourseIdRoute
+  '/faculty/$facultyId': typeof FacultyFacultyIdRoute
   '/recorded-classes/$lectureId': typeof RecordedClassesLectureIdRoute
+  '/about/': typeof AboutIndexRoute
   '/courses/': typeof CoursesIndexRoute
+  '/faculty/': typeof FacultyIndexRoute
+  '/pricing/': typeof PricingIndexRoute
   '/recorded-classes/': typeof RecordedClassesIndexRoute
   '/test/$testId/result': typeof TestTestIdResultRoute
   '/test/$testId/': typeof TestTestIdIndexRoute
@@ -207,8 +243,12 @@ export interface FileRouteTypes {
     | '/question-bank'
     | '/classroom/$classId'
     | '/courses/$courseId'
+    | '/faculty/$facultyId'
     | '/recorded-classes/$lectureId'
+    | '/about/'
     | '/courses/'
+    | '/faculty/'
+    | '/pricing/'
     | '/recorded-classes/'
     | '/test/$testId/result'
     | '/test/$testId/'
@@ -228,8 +268,12 @@ export interface FileRouteTypes {
     | '/question-bank'
     | '/classroom/$classId'
     | '/courses/$courseId'
+    | '/faculty/$facultyId'
     | '/recorded-classes/$lectureId'
+    | '/about'
     | '/courses'
+    | '/faculty'
+    | '/pricing'
     | '/recorded-classes'
     | '/test/$testId/result'
     | '/test/$testId'
@@ -249,8 +293,12 @@ export interface FileRouteTypes {
     | '/question-bank'
     | '/classroom/$classId'
     | '/courses/$courseId'
+    | '/faculty/$facultyId'
     | '/recorded-classes/$lectureId'
+    | '/about/'
     | '/courses/'
+    | '/faculty/'
+    | '/pricing/'
     | '/recorded-classes/'
     | '/test/$testId/result'
     | '/test/$testId/'
@@ -271,8 +319,12 @@ export interface RootRouteChildren {
   QuestionBankRoute: typeof QuestionBankRoute
   ClassroomClassIdRoute: typeof ClassroomClassIdRoute
   CoursesCourseIdRoute: typeof CoursesCourseIdRoute
+  FacultyFacultyIdRoute: typeof FacultyFacultyIdRoute
   RecordedClassesLectureIdRoute: typeof RecordedClassesLectureIdRoute
+  AboutIndexRoute: typeof AboutIndexRoute
   CoursesIndexRoute: typeof CoursesIndexRoute
+  FacultyIndexRoute: typeof FacultyIndexRoute
+  PricingIndexRoute: typeof PricingIndexRoute
   RecordedClassesIndexRoute: typeof RecordedClassesIndexRoute
   TestTestIdResultRoute: typeof TestTestIdResultRoute
   TestTestIdIndexRoute: typeof TestTestIdIndexRoute
@@ -364,6 +416,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof QuestionBankRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/about/': {
+      id: '/about/'
+      path: '/about'
+      fullPath: '/about/'
+      preLoaderRoute: typeof AboutIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/classroom/$classId': {
       id: '/classroom/$classId'
       path: '/classroom/$classId'
@@ -383,6 +442,27 @@ declare module '@tanstack/react-router' {
       path: '/courses/$courseId'
       fullPath: '/courses/$courseId'
       preLoaderRoute: typeof CoursesCourseIdRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/faculty/': {
+      id: '/faculty/'
+      path: '/faculty'
+      fullPath: '/faculty/'
+      preLoaderRoute: typeof FacultyIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/faculty/$facultyId': {
+      id: '/faculty/$facultyId'
+      path: '/faculty/$facultyId'
+      fullPath: '/faculty/$facultyId'
+      preLoaderRoute: typeof FacultyFacultyIdRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/pricing/': {
+      id: '/pricing/'
+      path: '/pricing'
+      fullPath: '/pricing/'
+      preLoaderRoute: typeof PricingIndexRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/recorded-classes/': {
@@ -431,8 +511,12 @@ const rootRouteChildren: RootRouteChildren = {
   QuestionBankRoute: QuestionBankRoute,
   ClassroomClassIdRoute: ClassroomClassIdRoute,
   CoursesCourseIdRoute: CoursesCourseIdRoute,
+  FacultyFacultyIdRoute: FacultyFacultyIdRoute,
   RecordedClassesLectureIdRoute: RecordedClassesLectureIdRoute,
+  AboutIndexRoute: AboutIndexRoute,
   CoursesIndexRoute: CoursesIndexRoute,
+  FacultyIndexRoute: FacultyIndexRoute,
+  PricingIndexRoute: PricingIndexRoute,
   RecordedClassesIndexRoute: RecordedClassesIndexRoute,
   TestTestIdResultRoute: TestTestIdResultRoute,
   TestTestIdIndexRoute: TestTestIdIndexRoute,
@@ -440,3 +524,13 @@ const rootRouteChildren: RootRouteChildren = {
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
   ._addFileTypes<FileRouteTypes>()
+
+import type { getRouter } from './router.tsx'
+import type { startInstance } from './start.ts'
+declare module '@tanstack/react-start' {
+  interface Register {
+    ssr: true
+    router: Awaited<ReturnType<typeof getRouter>>
+    config: Awaited<ReturnType<typeof startInstance.getOptions>>
+  }
+}

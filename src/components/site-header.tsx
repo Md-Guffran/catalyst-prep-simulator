@@ -18,6 +18,7 @@ import { useAppState } from "@/lib/app-state";
 import { cn } from "@/lib/utils";
 
 const publicNav = [
+  { label: "Home", to: "/" },
   { label: "Courses", to: "/courses" },
   { label: "PYQs", to: "/pyqs" },
   { label: "Faculty", to: "/faculty" },
