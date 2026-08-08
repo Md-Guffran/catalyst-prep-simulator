@@ -39,13 +39,14 @@ function ResultPage() {
       />
       <PageBody className="space-y-6">
         <Card className="grid gap-6 p-6 sm:grid-cols-[auto_1fr] sm:items-center">
-          <ProgressRing value={Number(r.accuracy ?? 0)} label="Accuracy" size={140} />
+          <ProgressRing value={Number(r["accuracy"] ?? 0)} label="Accuracy" size={140} />
           <dl className="grid grid-cols-2 gap-3 sm:grid-cols-4">
             {[
-              ["Score", `${r.score ?? "—"}`],
-              ["Total marks", `${r.totalMarks ?? test?.marks ?? "—"}`],
-              ["Rank", `${r.rank ?? "—"}`],
-              ["Percentile", `${r.percentile ?? "—"}`],
+              ["Score", `${r["score"] ?? "—"}`],
+              ["Total marks", `${r["totalMarks"] ?? test?.marks ?? "—"}`],
+              ["Rank", `${r["rank"] ?? "—"}`],
+              ["Percentile", `${r["percentile"] ?? "—"}`],
+
             ].map(([label, value]) => (
               <div key={label} className="rounded-xl border bg-muted/30 p-4">
                 <dd className="font-display text-xl font-extrabold">{value}</dd>
