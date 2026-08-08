@@ -12,12 +12,16 @@ import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as DashboardRouteImport } from './routes/dashboard'
 import { Route as LeaderboardRouteImport } from './routes/leaderboard'
+import { Route as LiveClassesRouteImport } from './routes/live-classes'
 import { Route as MockTestsRouteImport } from './routes/mock-tests'
+import { Route as OnboardingRouteImport } from './routes/onboarding'
 import { Route as ProgressRouteImport } from './routes/progress'
 import { Route as PyqsRouteImport } from './routes/pyqs'
 import { Route as QuestionBankRouteImport } from './routes/question-bank'
 import { Route as CoursesIndexRouteImport } from './routes/courses.index'
 import { Route as CoursesCourseIdRouteImport } from './routes/courses.$courseId'
+import { Route as RecordedClassesIndexRouteImport } from './routes/recorded-classes.index'
+import { Route as RecordedClassesLectureIdRouteImport } from './routes/recorded-classes.$lectureId'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
@@ -34,9 +38,19 @@ const LeaderboardRoute = LeaderboardRouteImport.update({
   path: '/leaderboard',
   getParentRoute: () => rootRouteImport,
 } as any)
+const LiveClassesRoute = LiveClassesRouteImport.update({
+  id: '/live-classes',
+  path: '/live-classes',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const MockTestsRoute = MockTestsRouteImport.update({
   id: '/mock-tests',
   path: '/mock-tests',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const OnboardingRoute = OnboardingRouteImport.update({
+  id: '/onboarding',
+  path: '/onboarding',
   getParentRoute: () => rootRouteImport,
 } as any)
 const ProgressRoute = ProgressRouteImport.update({
@@ -64,40 +78,63 @@ const CoursesCourseIdRoute = CoursesCourseIdRouteImport.update({
   path: '/courses/$courseId',
   getParentRoute: () => rootRouteImport,
 } as any)
+const RecordedClassesIndexRoute = RecordedClassesIndexRouteImport.update({
+  id: '/recorded-classes/',
+  path: '/recorded-classes/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const RecordedClassesLectureIdRoute =
+  RecordedClassesLectureIdRouteImport.update({
+    id: '/recorded-classes/$lectureId',
+    path: '/recorded-classes/$lectureId',
+    getParentRoute: () => rootRouteImport,
+  } as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/dashboard': typeof DashboardRoute
   '/leaderboard': typeof LeaderboardRoute
+  '/live-classes': typeof LiveClassesRoute
   '/mock-tests': typeof MockTestsRoute
+  '/onboarding': typeof OnboardingRoute
   '/progress': typeof ProgressRoute
   '/pyqs': typeof PyqsRoute
   '/question-bank': typeof QuestionBankRoute
   '/courses/$courseId': typeof CoursesCourseIdRoute
+  '/recorded-classes/$lectureId': typeof RecordedClassesLectureIdRoute
   '/courses/': typeof CoursesIndexRoute
+  '/recorded-classes/': typeof RecordedClassesIndexRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/dashboard': typeof DashboardRoute
   '/leaderboard': typeof LeaderboardRoute
+  '/live-classes': typeof LiveClassesRoute
   '/mock-tests': typeof MockTestsRoute
+  '/onboarding': typeof OnboardingRoute
   '/progress': typeof ProgressRoute
   '/pyqs': typeof PyqsRoute
   '/question-bank': typeof QuestionBankRoute
   '/courses/$courseId': typeof CoursesCourseIdRoute
+  '/recorded-classes/$lectureId': typeof RecordedClassesLectureIdRoute
   '/courses': typeof CoursesIndexRoute
+  '/recorded-classes': typeof RecordedClassesIndexRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
   '/dashboard': typeof DashboardRoute
   '/leaderboard': typeof LeaderboardRoute
+  '/live-classes': typeof LiveClassesRoute
   '/mock-tests': typeof MockTestsRoute
+  '/onboarding': typeof OnboardingRoute
   '/progress': typeof ProgressRoute
   '/pyqs': typeof PyqsRoute
   '/question-bank': typeof QuestionBankRoute
   '/courses/$courseId': typeof CoursesCourseIdRoute
+  '/recorded-classes/$lectureId': typeof RecordedClassesLectureIdRoute
   '/courses/': typeof CoursesIndexRoute
+  '/recorded-classes/': typeof RecordedClassesIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
@@ -105,46 +142,62 @@ export interface FileRouteTypes {
     | '/'
     | '/dashboard'
     | '/leaderboard'
+    | '/live-classes'
     | '/mock-tests'
+    | '/onboarding'
     | '/progress'
     | '/pyqs'
     | '/question-bank'
     | '/courses/$courseId'
+    | '/recorded-classes/$lectureId'
     | '/courses/'
+    | '/recorded-classes/'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
     | '/dashboard'
     | '/leaderboard'
+    | '/live-classes'
     | '/mock-tests'
+    | '/onboarding'
     | '/progress'
     | '/pyqs'
     | '/question-bank'
     | '/courses/$courseId'
+    | '/recorded-classes/$lectureId'
     | '/courses'
+    | '/recorded-classes'
   id:
     | '__root__'
     | '/'
     | '/dashboard'
     | '/leaderboard'
+    | '/live-classes'
     | '/mock-tests'
+    | '/onboarding'
     | '/progress'
     | '/pyqs'
     | '/question-bank'
     | '/courses/$courseId'
+    | '/recorded-classes/$lectureId'
     | '/courses/'
+    | '/recorded-classes/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   DashboardRoute: typeof DashboardRoute
   LeaderboardRoute: typeof LeaderboardRoute
+  LiveClassesRoute: typeof LiveClassesRoute
   MockTestsRoute: typeof MockTestsRoute
+  OnboardingRoute: typeof OnboardingRoute
   ProgressRoute: typeof ProgressRoute
   PyqsRoute: typeof PyqsRoute
   QuestionBankRoute: typeof QuestionBankRoute
   CoursesCourseIdRoute: typeof CoursesCourseIdRoute
+  RecordedClassesLectureIdRoute: typeof RecordedClassesLectureIdRoute
   CoursesIndexRoute: typeof CoursesIndexRoute
+  RecordedClassesIndexRoute: typeof RecordedClassesIndexRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -170,11 +223,25 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof LeaderboardRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/live-classes': {
+      id: '/live-classes'
+      path: '/live-classes'
+      fullPath: '/live-classes'
+      preLoaderRoute: typeof LiveClassesRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/mock-tests': {
       id: '/mock-tests'
       path: '/mock-tests'
       fullPath: '/mock-tests'
       preLoaderRoute: typeof MockTestsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/onboarding': {
+      id: '/onboarding'
+      path: '/onboarding'
+      fullPath: '/onboarding'
+      preLoaderRoute: typeof OnboardingRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/progress': {
@@ -212,6 +279,20 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof CoursesCourseIdRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/recorded-classes/': {
+      id: '/recorded-classes/'
+      path: '/recorded-classes'
+      fullPath: '/recorded-classes/'
+      preLoaderRoute: typeof RecordedClassesIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/recorded-classes/$lectureId': {
+      id: '/recorded-classes/$lectureId'
+      path: '/recorded-classes/$lectureId'
+      fullPath: '/recorded-classes/$lectureId'
+      preLoaderRoute: typeof RecordedClassesLectureIdRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
@@ -219,12 +300,16 @@ const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   DashboardRoute: DashboardRoute,
   LeaderboardRoute: LeaderboardRoute,
+  LiveClassesRoute: LiveClassesRoute,
   MockTestsRoute: MockTestsRoute,
+  OnboardingRoute: OnboardingRoute,
   ProgressRoute: ProgressRoute,
   PyqsRoute: PyqsRoute,
   QuestionBankRoute: QuestionBankRoute,
   CoursesCourseIdRoute: CoursesCourseIdRoute,
+  RecordedClassesLectureIdRoute: RecordedClassesLectureIdRoute,
   CoursesIndexRoute: CoursesIndexRoute,
+  RecordedClassesIndexRoute: RecordedClassesIndexRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
