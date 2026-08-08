@@ -168,7 +168,7 @@ function CourseDetail() {
             <p className="mt-1 text-sm text-muted-foreground">
               {course.syllabus.length} chapters · {course.lectures} lectures
             </p>
-            <Accordion type="single" collapsible defaultValue={course.syllabus[0]?.chapter} className="mt-4">
+            <Accordion type="single" collapsible defaultValue={course.syllabus[0]?.chapter ?? ""} className="mt-4">
               {course.syllabus.map((ch) => (
                 <AccordionItem key={ch.chapter} value={ch.chapter} className="rounded-xl border bg-card px-4">
                   <AccordionTrigger className="text-left hover:no-underline">
