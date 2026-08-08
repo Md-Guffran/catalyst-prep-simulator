@@ -91,11 +91,12 @@ function ProfilePage() {
               <Input id="email" type="email" value={form.email} onChange={(e) => setForm({ ...form, email: e.target.value })} />
             </div>
             <div className="grid gap-2">
-              <Label htmlFor="phone">
-                <Phone className="size-3.5" aria-hidden /> Phone
+              <Label htmlFor="city">
+                <Phone className="size-3.5" aria-hidden /> City
               </Label>
-              <Input id="phone" value={form.phone} onChange={(e) => setForm({ ...form, phone: e.target.value })} />
+              <Input id="city" value={form.city} onChange={(e) => setForm({ ...form, city: e.target.value })} />
             </div>
+
             <div className="sm:col-span-2">
               <Button type="submit" variant="gold">
                 <Save className="size-4" /> Save changes
