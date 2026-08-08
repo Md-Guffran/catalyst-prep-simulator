@@ -42,11 +42,8 @@ function BookmarksPage() {
             </Button>
           </Card>
         ) : (
-          <div className="space-y-5">
-            {saved.map((q, i) => (
-              <QuestionPractice key={q.id} question={q} index={i} total={saved.length} />
-            ))}
-          </div>
+          <QuestionPractice questions={saved} source="bank" />
+
         )}
       </PageBody>
     </>

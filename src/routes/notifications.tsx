@@ -28,7 +28,7 @@ function NotificationsPage() {
         title="Notifications"
         subtitle="Class reminders, results and announcements."
         actions={
-          <Button variant="outline" onClick={markAllRead}>
+          <Button variant="outline" onClick={() => markAllRead(notifications.map((n) => n.id))}>
             <CheckCheck className="size-4" /> Mark all as read
           </Button>
         }

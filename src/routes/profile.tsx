@@ -24,13 +24,14 @@ export const Route = createFileRoute("/profile")({
 });
 
 function ProfilePage() {
-  const { profile, updateProfile } = useAppState();
+  const { state, updateProfile } = useAppState();
   const [form, setForm] = useState({
-    name: profile.name ?? demoUser.name,
-    email: profile.email ?? demoUser.email,
-    phone: profile.phone ?? demoUser.phone,
-    target: profile.target ?? demoUser.target,
+    name: state.profile.name,
+    email: demoUser.email,
+    city: state.profile.city,
+    target: state.profile.target,
   });
+
 
   return (
     <>
