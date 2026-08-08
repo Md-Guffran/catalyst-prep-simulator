@@ -23,7 +23,8 @@ function ResultPage() {
   const test = mockTests.find((t) => t.id === testId);
   const r = testResult as Record<string, any>;
   const sections: { subject: string; score: number; total: number; accuracy: number }[] =
-    r.sections ?? [];
+    r["sections"] ?? [];
+
 
   return (
     <>

@@ -21,10 +21,13 @@ import { Route as ProfileRouteImport } from './routes/profile'
 import { Route as ProgressRouteImport } from './routes/progress'
 import { Route as PyqsRouteImport } from './routes/pyqs'
 import { Route as QuestionBankRouteImport } from './routes/question-bank'
+import { Route as ClassroomClassIdRouteImport } from './routes/classroom.$classId'
 import { Route as CoursesIndexRouteImport } from './routes/courses.index'
 import { Route as CoursesCourseIdRouteImport } from './routes/courses.$courseId'
 import { Route as RecordedClassesIndexRouteImport } from './routes/recorded-classes.index'
 import { Route as RecordedClassesLectureIdRouteImport } from './routes/recorded-classes.$lectureId'
+import { Route as TestTestIdIndexRouteImport } from './routes/test.$testId.index'
+import { Route as TestTestIdResultRouteImport } from './routes/test.$testId.result'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
@@ -86,6 +89,11 @@ const QuestionBankRoute = QuestionBankRouteImport.update({
   path: '/question-bank',
   getParentRoute: () => rootRouteImport,
 } as any)
+const ClassroomClassIdRoute = ClassroomClassIdRouteImport.update({
+  id: '/classroom/$classId',
+  path: '/classroom/$classId',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const CoursesIndexRoute = CoursesIndexRouteImport.update({
   id: '/courses/',
   path: '/courses/',
@@ -107,6 +115,16 @@ const RecordedClassesLectureIdRoute =
     path: '/recorded-classes/$lectureId',
     getParentRoute: () => rootRouteImport,
   } as any)
+const TestTestIdIndexRoute = TestTestIdIndexRouteImport.update({
+  id: '/test/$testId/',
+  path: '/test/$testId/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const TestTestIdResultRoute = TestTestIdResultRouteImport.update({
+  id: '/test/$testId/result',
+  path: '/test/$testId/result',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
@@ -121,10 +139,13 @@ export interface FileRoutesByFullPath {
   '/progress': typeof ProgressRoute
   '/pyqs': typeof PyqsRoute
   '/question-bank': typeof QuestionBankRoute
+  '/classroom/$classId': typeof ClassroomClassIdRoute
   '/courses/$courseId': typeof CoursesCourseIdRoute
   '/recorded-classes/$lectureId': typeof RecordedClassesLectureIdRoute
   '/courses/': typeof CoursesIndexRoute
   '/recorded-classes/': typeof RecordedClassesIndexRoute
+  '/test/$testId/result': typeof TestTestIdResultRoute
+  '/test/$testId/': typeof TestTestIdIndexRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
@@ -139,10 +160,13 @@ export interface FileRoutesByTo {
   '/progress': typeof ProgressRoute
   '/pyqs': typeof PyqsRoute
   '/question-bank': typeof QuestionBankRoute
+  '/classroom/$classId': typeof ClassroomClassIdRoute
   '/courses/$courseId': typeof CoursesCourseIdRoute
   '/recorded-classes/$lectureId': typeof RecordedClassesLectureIdRoute
   '/courses': typeof CoursesIndexRoute
   '/recorded-classes': typeof RecordedClassesIndexRoute
+  '/test/$testId/result': typeof TestTestIdResultRoute
+  '/test/$testId': typeof TestTestIdIndexRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
@@ -158,10 +182,13 @@ export interface FileRoutesById {
   '/progress': typeof ProgressRoute
   '/pyqs': typeof PyqsRoute
   '/question-bank': typeof QuestionBankRoute
+  '/classroom/$classId': typeof ClassroomClassIdRoute
   '/courses/$courseId': typeof CoursesCourseIdRoute
   '/recorded-classes/$lectureId': typeof RecordedClassesLectureIdRoute
   '/courses/': typeof CoursesIndexRoute
   '/recorded-classes/': typeof RecordedClassesIndexRoute
+  '/test/$testId/result': typeof TestTestIdResultRoute
+  '/test/$testId/': typeof TestTestIdIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
@@ -178,10 +205,13 @@ export interface FileRouteTypes {
     | '/progress'
     | '/pyqs'
     | '/question-bank'
+    | '/classroom/$classId'
     | '/courses/$courseId'
     | '/recorded-classes/$lectureId'
     | '/courses/'
     | '/recorded-classes/'
+    | '/test/$testId/result'
+    | '/test/$testId/'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
@@ -196,10 +226,13 @@ export interface FileRouteTypes {
     | '/progress'
     | '/pyqs'
     | '/question-bank'
+    | '/classroom/$classId'
     | '/courses/$courseId'
     | '/recorded-classes/$lectureId'
     | '/courses'
     | '/recorded-classes'
+    | '/test/$testId/result'
+    | '/test/$testId'
   id:
     | '__root__'
     | '/'
@@ -214,10 +247,13 @@ export interface FileRouteTypes {
     | '/progress'
     | '/pyqs'
     | '/question-bank'
+    | '/classroom/$classId'
     | '/courses/$courseId'
     | '/recorded-classes/$lectureId'
     | '/courses/'
     | '/recorded-classes/'
+    | '/test/$testId/result'
+    | '/test/$testId/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
@@ -233,10 +269,13 @@ export interface RootRouteChildren {
   ProgressRoute: typeof ProgressRoute
   PyqsRoute: typeof PyqsRoute
   QuestionBankRoute: typeof QuestionBankRoute
+  ClassroomClassIdRoute: typeof ClassroomClassIdRoute
   CoursesCourseIdRoute: typeof CoursesCourseIdRoute
   RecordedClassesLectureIdRoute: typeof RecordedClassesLectureIdRoute
   CoursesIndexRoute: typeof CoursesIndexRoute
   RecordedClassesIndexRoute: typeof RecordedClassesIndexRoute
+  TestTestIdResultRoute: typeof TestTestIdResultRoute
+  TestTestIdIndexRoute: typeof TestTestIdIndexRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -325,6 +364,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof QuestionBankRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/classroom/$classId': {
+      id: '/classroom/$classId'
+      path: '/classroom/$classId'
+      fullPath: '/classroom/$classId'
+      preLoaderRoute: typeof ClassroomClassIdRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/courses/': {
       id: '/courses/'
       path: '/courses'
@@ -353,6 +399,20 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof RecordedClassesLectureIdRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/test/$testId/': {
+      id: '/test/$testId/'
+      path: '/test/$testId'
+      fullPath: '/test/$testId/'
+      preLoaderRoute: typeof TestTestIdIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/test/$testId/result': {
+      id: '/test/$testId/result'
+      path: '/test/$testId/result'
+      fullPath: '/test/$testId/result'
+      preLoaderRoute: typeof TestTestIdResultRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
@@ -369,10 +429,13 @@ const rootRouteChildren: RootRouteChildren = {
   ProgressRoute: ProgressRoute,
   PyqsRoute: PyqsRoute,
   QuestionBankRoute: QuestionBankRoute,
+  ClassroomClassIdRoute: ClassroomClassIdRoute,
   CoursesCourseIdRoute: CoursesCourseIdRoute,
   RecordedClassesLectureIdRoute: RecordedClassesLectureIdRoute,
   CoursesIndexRoute: CoursesIndexRoute,
   RecordedClassesIndexRoute: RecordedClassesIndexRoute,
+  TestTestIdResultRoute: TestTestIdResultRoute,
+  TestTestIdIndexRoute: TestTestIdIndexRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
