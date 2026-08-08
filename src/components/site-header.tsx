@@ -58,19 +58,19 @@ export function SiteHeader() {
   const nav = isApp ? appNav : publicNav;
 
   return (
-    <header className="sticky top-0 z-50 surface-navy border-b border-white/10">
+    <header className="sticky top-0 z-50 bg-[#0B1B3A] text-white border-b border-white/10 shadow-md">
       <div className="mx-auto grid max-w-7xl grid-cols-[auto_1fr_auto] items-center gap-3 px-4 py-3 sm:px-6">
         <Logo tone="light" />
 
-        <nav aria-label="Main" className="hidden min-w-0 items-center justify-center gap-1 lg:flex">
+        <nav aria-label="Main" className="hidden min-w-0 items-center justify-center gap-1.5 lg:flex">
           {nav.map((item) => (
             <Link
               key={item.to}
               to={item.to}
               className={cn(
-                "rounded-full px-3 py-2 text-sm font-medium text-navy-foreground/75 transition-colors hover:bg-white/10 hover:text-navy-foreground",
+                "rounded-full px-3.5 py-2 text-sm font-semibold text-slate-200 transition-all hover:bg-white/12 hover:text-white",
               )}
-              activeProps={{ className: "bg-white/12 text-navy-foreground" }}
+              activeProps={{ className: "bg-white/20 text-white font-extrabold shadow-xs border border-white/20" }}
             >
               {item.label}
             </Link>
@@ -85,10 +85,10 @@ export function SiteHeader() {
             </>
           ) : (
             <>
-              <Button asChild variant="ghost" className="hidden text-navy-foreground hover:bg-white/10 hover:text-navy-foreground sm:inline-flex">
-                <Link to="/dashboard">Sign in</Link>
+              <Button asChild variant="navyGhost" className="hidden sm:inline-flex font-bold text-white hover:bg-white/15">
+                <Link to="/onboarding" search={{ tab: "signin" }}>Sign in</Link>
               </Button>
-              <Button asChild variant="gold" className="hidden sm:inline-flex">
+              <Button asChild variant="gold" className="hidden sm:inline-flex font-extrabold shadow-sm">
                 <Link to="/onboarding">Start Learning</Link>
               </Button>
             </>

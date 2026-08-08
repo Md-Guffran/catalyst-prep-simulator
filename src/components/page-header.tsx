@@ -12,11 +12,11 @@ export function PageHeader({
   children?: ReactNode;
 }) {
   return (
-    <div className="surface-navy border-b border-white/10">
+    <div className="bg-[#0B1B3A] text-white border-b border-white/10 shadow-sm">
       <div className="mx-auto grid max-w-7xl gap-4 px-4 py-10 sm:px-6 md:flex md:items-end md:justify-between">
         <div className="min-w-0">
-          <h1 className="font-display text-3xl font-extrabold text-navy-foreground sm:text-4xl">{title}</h1>
-          {subtitle && <p className="mt-2 max-w-2xl text-navy-foreground/70">{subtitle}</p>}
+          <h1 className="font-display text-3xl font-extrabold text-white sm:text-4xl">{title}</h1>
+          {subtitle && <p className="mt-2 max-w-2xl text-slate-200 text-base font-medium">{subtitle}</p>}
           {children}
         </div>
         {actions && <div className="flex shrink-0 flex-wrap gap-2">{actions}</div>}

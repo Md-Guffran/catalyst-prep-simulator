@@ -94,44 +94,34 @@ function Landing() {
   return (
     <>
       {/* Hero */}
-      <section className="surface-navy grid-noise relative overflow-hidden">
+      <section className="bg-gradient-to-b from-[#FAF8F5] via-white to-[#F0F4FA] relative overflow-hidden border-b border-slate-200/80">
         <div className="mx-auto grid max-w-7xl items-center gap-12 px-4 py-16 sm:px-6 lg:grid-cols-[1.05fr_1fr] lg:py-24">
           <motion.div
             initial={{ opacity: 0, y: 18 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5 }}
           >
-            <span className="inline-flex items-center gap-2 rounded-full border border-accent/30 bg-accent/10 px-3 py-1.5 text-xs font-semibold text-accent">
-              <Sparkles className="size-3.5" /> Turn preparation into progress
+            <span className="inline-flex items-center gap-2 rounded-full border border-amber-400/50 bg-amber-50 px-3.5 py-1.5 text-xs font-extrabold text-amber-900 shadow-xs">
+              <Sparkles className="size-3.5 text-amber-600" /> Turn preparation into progress
             </span>
-            <h1 className="mt-5 font-display text-4xl font-extrabold leading-[1.08] text-navy-foreground sm:text-5xl lg:text-[3.4rem]">
-              Crack JEE with a preparation system built around your{" "}
+            <h1 className="mt-5 font-display text-4xl font-extrabold leading-[1.1] text-[#0B1B3A] sm:text-5xl lg:text-[3.5rem] tracking-tight">
+              Crack JEE with a<br className="hidden sm:inline" /> preparation system<br className="hidden sm:inline" /> built around your{" "}
               <span className="text-gradient-gold">progress.</span>
             </h1>
-            <p className="mt-5 max-w-xl text-base leading-relaxed text-navy-foreground/75 sm:text-lg">
+            <p className="mt-5 max-w-[620px] text-base leading-[1.6] text-[#475569] sm:text-lg font-medium">
               Structured learning, targeted practice, PYQs, live classes and performance insights
               designed to help serious JEE aspirants prepare with clarity.
             </p>
             <div className="mt-8 flex flex-wrap gap-3">
-              <Button asChild variant="gold" size="lg">
+              <Button asChild variant="gold" size="lg" className="font-extrabold shadow-md">
                 <Link to="/onboarding">
                   Start Learning <ArrowRight className="size-4" />
                 </Link>
               </Button>
-              <Button
-                asChild
-                size="lg"
-                variant="outline"
-                className="border-white/25 bg-white/5 text-navy-foreground hover:bg-white/12"
-              >
+              <Button asChild size="lg" variant="outline" className="border-slate-300 bg-white text-[#0B1B3A] hover:bg-slate-50 font-bold shadow-xs">
                 <Link to="/courses">Explore Courses</Link>
               </Button>
-              <Button
-                asChild
-                size="lg"
-                variant="ghost"
-                className="text-navy-foreground hover:bg-white/10 hover:text-navy-foreground"
-              >
+              <Button asChild size="lg" variant="ghost" className="text-[#0B1B3A] hover:bg-slate-100 hover:text-[#0B1B3A] font-bold">
                 <Link to="/pyqs">Explore PYQs</Link>
               </Button>
             </div>
@@ -142,8 +132,8 @@ function Landing() {
                 ["48 tests", "Exam-pattern series"],
               ].map(([k, v]) => (
                 <div key={k}>
-                  <dt className="font-display text-xl font-bold text-accent">{k}</dt>
-                  <dd className="text-xs text-navy-foreground/65">{v}</dd>
+                  <dt className="font-display text-2xl font-extrabold text-[#0B1B3A]">{k}</dt>
+                  <dd className="text-xs font-semibold text-[#52627A] mt-1">{v}</dd>
                 </div>
               ))}
             </dl>
@@ -155,13 +145,13 @@ function Landing() {
             transition={{ duration: 0.6, delay: 0.1 }}
             className="relative"
           >
-            <div className="absolute -inset-6 rounded-[2rem] bg-accent/10 blur-3xl" aria-hidden />
+            <div className="absolute -inset-6 rounded-[2rem] bg-amber-500/10 blur-3xl" aria-hidden />
             <img
               src={heroDashboard}
               alt="JEE Catalyst student dashboard showing overall progress, subject completion and weekly study activity"
               width={1408}
               height={1008}
-              className="relative w-full rounded-2xl border border-white/10 shadow-[var(--shadow-lift)]"
+              className="relative w-full rounded-2xl border border-slate-200/90 shadow-xl"
             />
           </motion.div>
         </div>
@@ -171,8 +161,8 @@ function Landing() {
       <section className="border-b bg-card">
         <ul className="mx-auto flex max-w-7xl flex-wrap items-center justify-center gap-x-10 gap-y-4 px-4 py-6 sm:px-6">
           {credibility.map(({ icon: Icon, label }) => (
-            <li key={label} className="flex items-center gap-2.5 text-sm font-semibold text-muted-foreground">
-              <Icon className="size-4 text-accent-foreground" aria-hidden />
+            <li key={label} className="flex items-center gap-2.5 text-sm font-semibold text-foreground">
+              <Icon className="size-4 text-amber-600 dark:text-amber-400" aria-hidden />
               {label}
             </li>
           ))}
@@ -357,9 +347,9 @@ export function SectionHeading({
 }) {
   return (
     <div className={align === "center" ? "mx-auto max-w-2xl text-center" : "max-w-2xl"}>
-      <p className="text-sm font-bold uppercase tracking-[0.18em] text-accent-foreground">{eyebrow}</p>
-      <h2 className="mt-3 font-display text-3xl font-extrabold sm:text-4xl">{title}</h2>
-      {body && <p className="mt-4 text-muted-foreground">{body}</p>}
+      <p className="text-sm font-extrabold uppercase tracking-[0.18em] text-amber-600 dark:text-amber-400">{eyebrow}</p>
+      <h2 className="mt-3 font-display text-3xl font-extrabold text-foreground sm:text-4xl">{title}</h2>
+      {body && <p className="mt-4 text-muted-foreground font-medium">{body}</p>}
     </div>
   );
 }

@@ -9,17 +9,21 @@ const buttonVariants = cva(
   {
     variants: {
       variant: {
-        default: "bg-primary text-primary-foreground shadow-[var(--shadow-soft)] hover:bg-navy-soft",
+        default: "bg-[#0B1B3A] text-white shadow-sm hover:bg-[#10264D]",
         destructive: "bg-destructive text-destructive-foreground shadow-sm hover:bg-destructive/90",
         outline:
-          "border border-input bg-card shadow-sm hover:border-primary/30 hover:bg-muted",
-        secondary: "bg-secondary text-secondary-foreground shadow-sm hover:bg-secondary/80",
-        ghost: "hover:bg-muted hover:text-foreground",
-        link: "text-primary underline-offset-4 hover:underline",
-        gold: "bg-[image:var(--gradient-gold)] text-gold-foreground shadow-[var(--shadow-gold)] hover:brightness-[1.06] active:brightness-95",
+          "border border-slate-300 bg-white text-[#0B1B3A] shadow-xs hover:bg-slate-50 hover:border-slate-400 font-bold",
+        secondary: "bg-slate-100 text-[#0B1B3A] hover:bg-slate-200 font-semibold",
+        ghost: "text-[#0B1B3A] hover:bg-slate-100 hover:text-[#0B1B3A] font-bold",
+        link: "text-[#0B1B3A] underline-offset-4 hover:underline font-semibold",
+        gold: "bg-[image:var(--gradient-gold)] text-slate-950 font-extrabold shadow-[var(--shadow-gold)] hover:brightness-[1.05] active:brightness-95 disabled:bg-slate-200 disabled:text-slate-500 disabled:border disabled:border-slate-300 disabled:shadow-none",
         goldOutline:
-          "border border-accent/60 text-accent-foreground bg-accent/10 hover:bg-accent/20",
-        navy: "surface-navy shadow-[var(--shadow-lift)] hover:brightness-110",
+          "border border-amber-500/60 text-amber-900 bg-amber-50/60 hover:bg-amber-100 font-bold",
+        navy: "bg-[#0B1B3A] text-white shadow-md hover:bg-[#10264D]",
+        navyOutline:
+          "border border-white/30 bg-white/10 text-white hover:bg-white/20 hover:border-white/50 shadow-sm font-bold",
+        navyGhost:
+          "text-white/90 hover:bg-white/15 hover:text-white font-bold",
       },
       size: {
         default: "h-10 px-4 py-2",
