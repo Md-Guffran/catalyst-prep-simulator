@@ -11,6 +11,9 @@
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as DashboardRouteImport } from './routes/dashboard'
+import { Route as LeaderboardRouteImport } from './routes/leaderboard'
+import { Route as MockTestsRouteImport } from './routes/mock-tests'
+import { Route as ProgressRouteImport } from './routes/progress'
 import { Route as PyqsRouteImport } from './routes/pyqs'
 import { Route as QuestionBankRouteImport } from './routes/question-bank'
 import { Route as CoursesIndexRouteImport } from './routes/courses.index'
@@ -24,6 +27,21 @@ const IndexRoute = IndexRouteImport.update({
 const DashboardRoute = DashboardRouteImport.update({
   id: '/dashboard',
   path: '/dashboard',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const LeaderboardRoute = LeaderboardRouteImport.update({
+  id: '/leaderboard',
+  path: '/leaderboard',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const MockTestsRoute = MockTestsRouteImport.update({
+  id: '/mock-tests',
+  path: '/mock-tests',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ProgressRoute = ProgressRouteImport.update({
+  id: '/progress',
+  path: '/progress',
   getParentRoute: () => rootRouteImport,
 } as any)
 const PyqsRoute = PyqsRouteImport.update({
@@ -50,6 +68,9 @@ const CoursesCourseIdRoute = CoursesCourseIdRouteImport.update({
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/dashboard': typeof DashboardRoute
+  '/leaderboard': typeof LeaderboardRoute
+  '/mock-tests': typeof MockTestsRoute
+  '/progress': typeof ProgressRoute
   '/pyqs': typeof PyqsRoute
   '/question-bank': typeof QuestionBankRoute
   '/courses/$courseId': typeof CoursesCourseIdRoute
@@ -58,6 +79,9 @@ export interface FileRoutesByFullPath {
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/dashboard': typeof DashboardRoute
+  '/leaderboard': typeof LeaderboardRoute
+  '/mock-tests': typeof MockTestsRoute
+  '/progress': typeof ProgressRoute
   '/pyqs': typeof PyqsRoute
   '/question-bank': typeof QuestionBankRoute
   '/courses/$courseId': typeof CoursesCourseIdRoute
@@ -67,6 +91,9 @@ export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
   '/dashboard': typeof DashboardRoute
+  '/leaderboard': typeof LeaderboardRoute
+  '/mock-tests': typeof MockTestsRoute
+  '/progress': typeof ProgressRoute
   '/pyqs': typeof PyqsRoute
   '/question-bank': typeof QuestionBankRoute
   '/courses/$courseId': typeof CoursesCourseIdRoute
@@ -77,6 +104,9 @@ export interface FileRouteTypes {
   fullPaths:
     | '/'
     | '/dashboard'
+    | '/leaderboard'
+    | '/mock-tests'
+    | '/progress'
     | '/pyqs'
     | '/question-bank'
     | '/courses/$courseId'
@@ -85,6 +115,9 @@ export interface FileRouteTypes {
   to:
     | '/'
     | '/dashboard'
+    | '/leaderboard'
+    | '/mock-tests'
+    | '/progress'
     | '/pyqs'
     | '/question-bank'
     | '/courses/$courseId'
@@ -93,6 +126,9 @@ export interface FileRouteTypes {
     | '__root__'
     | '/'
     | '/dashboard'
+    | '/leaderboard'
+    | '/mock-tests'
+    | '/progress'
     | '/pyqs'
     | '/question-bank'
     | '/courses/$courseId'
@@ -102,6 +138,9 @@ export interface FileRouteTypes {
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   DashboardRoute: typeof DashboardRoute
+  LeaderboardRoute: typeof LeaderboardRoute
+  MockTestsRoute: typeof MockTestsRoute
+  ProgressRoute: typeof ProgressRoute
   PyqsRoute: typeof PyqsRoute
   QuestionBankRoute: typeof QuestionBankRoute
   CoursesCourseIdRoute: typeof CoursesCourseIdRoute
@@ -122,6 +161,27 @@ declare module '@tanstack/react-router' {
       path: '/dashboard'
       fullPath: '/dashboard'
       preLoaderRoute: typeof DashboardRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/leaderboard': {
+      id: '/leaderboard'
+      path: '/leaderboard'
+      fullPath: '/leaderboard'
+      preLoaderRoute: typeof LeaderboardRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/mock-tests': {
+      id: '/mock-tests'
+      path: '/mock-tests'
+      fullPath: '/mock-tests'
+      preLoaderRoute: typeof MockTestsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/progress': {
+      id: '/progress'
+      path: '/progress'
+      fullPath: '/progress'
+      preLoaderRoute: typeof ProgressRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/pyqs': {
@@ -158,6 +218,9 @@ declare module '@tanstack/react-router' {
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   DashboardRoute: DashboardRoute,
+  LeaderboardRoute: LeaderboardRoute,
+  MockTestsRoute: MockTestsRoute,
+  ProgressRoute: ProgressRoute,
   PyqsRoute: PyqsRoute,
   QuestionBankRoute: QuestionBankRoute,
   CoursesCourseIdRoute: CoursesCourseIdRoute,
