@@ -20,9 +20,11 @@ export const Route = createFileRoute("/bookmarks")({
 });
 
 function BookmarksPage() {
-  const { bookmarks } = useAppState();
+  const { state } = useAppState();
+  const ids = state.bookmarks.map((b) => b.id);
   const all = [...questions, ...pyqs];
-  const saved = all.filter((q) => bookmarks.includes(q.id));
+  const saved = all.filter((q) => ids.includes(q.id));
+
 
   return (
     <>
